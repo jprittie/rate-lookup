@@ -1,0 +1,24 @@
+{
+  "name": "exchange-rate-lookup",
+  "version": "1.0.0",
+  "description": "A command-line program to query historical exchange rates",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "node_modules/.bin/mocha || true"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "commander": "^2.15.1",
+    "inquirer": "^6.0.0",
+    "moment": "^2.22.2"
+  },
+  "devDependencies": {
+    "chai": "^4.0.2",
+    "mocha": "^3.4.2",
+    "nock": "^9.0.13",
+    "supertest": "^3.1.0"
+  }
+}
