@@ -7,7 +7,8 @@ const inquirer = require('inquirer');
 const { questions } = require('./command-line');
 
 module.exports = {
-  getData
+  getData,
+  convertCurrency
 };
 
 /** Commander and inquirer are used to prompt user and validate input. */

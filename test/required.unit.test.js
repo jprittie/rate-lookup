@@ -1,7 +1,7 @@
 const expect = require('chai').expect;
 const nock = require('nock');
 
-const getData = require('../index').getData;
+const { getData } = require('../index');
 const response = require('./mock-response');
 
 /**
@@ -25,7 +25,6 @@ describe('Gets exchange rate data for 2011-06-03', () => {
   it('Calculates conversion and returns reshaped data object', () => {
     return getData('2011-06-03', 'USD', 100, 'CAD')
       .then(reshapedData => {
-        console.log('reshapedData', reshapedData);
         expect(typeof reshapedData).to.equal('object');
         expect(reshapedData.date).to.equal('2011-06-03');
         expect(reshapedData.base_currency).to.equal('USD');
@@ -52,7 +51,6 @@ describe('Gets exchange rate data for 2007-07-12', () => {
   it('Calculates conversion and returns reshaped data object', () => {
     return getData('2007-07-12', 'GBP', 303, 'SEK')
       .then(reshapedData => {
-        console.log('reshapedData', reshapedData);
         expect(typeof reshapedData).to.equal('object');
         expect(reshapedData.date).to.equal('2007-07-12');
         expect(reshapedData.base_currency).to.equal('GBP');
@@ -79,7 +77,6 @@ describe('Gets exchange rate data for 2004-08-07', () => {
   it('Calculates conversion and returns reshaped data object', () => {
     return getData('2004-08-07', 'EUR', 5, 'PLN')
       .then(reshapedData => {
-        console.log('reshapedData', reshapedData);
         expect(typeof reshapedData).to.equal('object');
         expect(reshapedData.date).to.equal('2004-08-07');
         expect(reshapedData.base_currency).to.equal('EUR');
@@ -106,7 +103,6 @@ describe('Gets exchange rate data for 2017-02-09', () => {
   it('Calculates conversion and returns reshaped data object', () => {
     return getData('2017-02-09', 'ZAR', 132, 'TRY')
       .then(reshapedData => {
-        console.log('reshapedData', reshapedData);
         expect(typeof reshapedData).to.equal('object');
         expect(reshapedData.date).to.equal('2017-02-09');
         expect(reshapedData.base_currency).to.equal('ZAR');
