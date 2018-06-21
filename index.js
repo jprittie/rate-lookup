@@ -1,4 +1,4 @@
-// 'use strict';
+'use strict';
 
 const axios = require('axios');
 const program = require('commander');
@@ -10,13 +10,13 @@ module.exports = {
   getData
 };
 
+/** Commander and inquirer are used to prompt user and validate input. */
 program
   .command('lookUpRate')
   .alias('l')
   .description('Look up historical exchange rate')
   .action(() => {
     inquirer.prompt(questions).then(answers => {
-      console.log('answers', answers);
       const { date, baseCurr, baseAmt, convCurr } = answers;
       getData(date, baseCurr, baseAmt, convCurr);
     });
@@ -24,11 +24,10 @@ program
 
 program.parse(process.argv);
 
+/** function getData takes data entered by the user, calls the API and returns reshaped data. */
 function getData (date, baseCurr, baseAmt, convCurr) {
   const url = `https://exchangeratesapi.io/api/${date}?base=${baseCurr}`;
   baseAmt = parseFloat(baseAmt);
-  baseCurr = baseCurr.toUpperCase();
-  convCurr = convCurr.toUpperCase();
 
   return axios
     .get(url)
@@ -43,11 +42,10 @@ function getData (date, baseCurr, baseAmt, convCurr) {
     });
 }
 
-// Do currency conversion and reformat JSON
+/** function convertCurrency does the currency conversion and creates the object to return. */
 function convertCurrency (date, baseCurr, baseAmt, convCurr, apiResponse) {
   let newAmt = baseAmt * apiResponse.rates[convCurr];
   newAmt = parseFloat((Math.round(newAmt * 100) / 100).toFixed(2));
-  // JSON in command line doesn't have quotes around keys
   const reformattedResponse = {
     'date': date,
     'base_currency': baseCurr,

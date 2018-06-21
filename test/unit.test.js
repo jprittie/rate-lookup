@@ -2,9 +2,13 @@ const expect = require('chai').expect;
 const nock = require('nock');
 
 const getData = require('../index').getData;
-// destructure
-const response = require('./response');
+const response = require('./mock-response');
 
+/**
+  * These four unit tests cover the testing cases that are required in the project spec.
+  * Note that nock is being torn down after each test so its scope doesn't affect the integration
+  * test, in which I do want an actual http request to occur.
+  */
 describe('Gets exchange rate data for 2011-06-03', () => {
   beforeEach(() => {
     nock.disableNetConnect();

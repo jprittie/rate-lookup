@@ -1,10 +1,13 @@
 const moment = require('moment');
 moment().format();
 
+/** currencyOptions array is used to check whether the currency entered is one the API supports */
 const currencyOptions = [
-  'AUD', 'CAD', 'CHF', 'CYP', 'CZK', 'DKK', 'EEK', 'GBP', 'HKD', 'HUF', 'ISK', 'JPY', 'KRW', 'LTL', 'LVL', 'MTL', 'NOK', 'NZD', 'PLN', 'ROL', 'SEK', 'SGD', 'SIT', 'SKK', 'TRL', 'USD', 'ZAR'
+  'AUD', 'CAD', 'CHF', 'CYP', 'CZK', 'DKK', 'EEK', 'GBP', 'HKD', 'HUF', 'ISK', 'JPY', 'KRW', 'LTL',
+  'LVL', 'MTL', 'NOK', 'NZD', 'PLN', 'ROL', 'SEK', 'SGD', 'SIT', 'SKK', 'TRL', 'USD', 'ZAR'
 ];
 
+/** questions array is used by inquirer to prompt the user and validate input */
 const questions = [
   {
     name: 'date',
@@ -57,6 +60,7 @@ const questions = [
   }
 ];
 
+/** function checkDate validates the date that the user enters, and ensure it's after 1999-01-04 */
 function checkDate (value) {
   const format = 'YYYY-MM-DD';
   console.log(moment(value, format, undefined, true).isValid());
