@@ -47,4 +47,11 @@ describe('Additional unit tests', () => {
           'conversion_currency', 'conversion_amount']);
       });
   });
+
+  it('Should throw error', () => {
+    return getData('2011-06-03', 'USD')
+      .catch(err => {
+        expect(err).to.equal('API call error');
+      });
+  });
 });
