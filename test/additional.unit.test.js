@@ -4,7 +4,7 @@ const nock = require('nock');
 const { getData } = require('../index');
 const response = require('./mock-response');
 
-/** These unit tests cover a range of additional tests */
+/** These unit tests cover some additional tests */
 describe('Additional unit tests', () => {
   beforeEach(() => {
     nock.disableNetConnect();
@@ -37,6 +37,14 @@ describe('Additional unit tests', () => {
         expect(reshapedData.base_amount).to.be.a('number');
         expect(reshapedData.conversion_currency).to.be.a('string');
         expect(reshapedData.conversion_amount).to.be.a('number');
+      });
+  });
+
+  it('Should check keys', () => {
+    return getData('2011-06-03', 'USD', 100, 'CAD')
+      .then(reshapedData => {
+        expect(reshapedData).to.have.keys(['date', 'base_currency', 'base_amount',
+          'conversion_currency', 'conversion_amount']);
       });
   });
 });

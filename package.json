@@ -4,9 +4,10 @@
   "description": "A command-line program to query historical exchange rates",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js lookUpRate",
+    "start": "node index.js lookUpRate",
     "test": "node_modules/.bin/mocha || true",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "build": "gulp build"
   },
   "author": "",
   "license": "MIT",
