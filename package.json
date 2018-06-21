@@ -4,7 +4,7 @@
   "description": "A command-line program to query historical exchange rates",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "nodemon index.js lookUpRate",
     "test": "node_modules/.bin/mocha || true"
   },
   "author": "",

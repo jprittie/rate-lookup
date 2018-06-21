@@ -10,16 +10,6 @@ module.exports = {
   getData
 };
 
-// program
-//   .command('getData <date> <baseAmt> <baseCurr> <convCurr>')
-//   .alias('a')
-//   .description('Look up a historical exchange rate')
-//   .action((date, baseAmt, baseCurr, convCurr) => {
-//     getData({date, baseAmt, baseCurr, convCurr});
-//   });
-//
-// program.parse(process.argv);
-
 program
   .command('lookUpRate')
   .alias('l')
@@ -36,9 +26,9 @@ program.parse(process.argv);
 
 function getData (date, baseCurr, baseAmt, convCurr) {
   const url = `https://exchangeratesapi.io/api/${date}?base=${baseCurr}`;
-  // convert baseCurr and convCurr to all caps
-  // parseFloat?
-  baseAmt = parseInt(baseAmt);
+  baseAmt = parseFloat(baseAmt);
+  baseCurr = baseCurr.toUpperCase();
+  convCurr = convCurr.toUpperCase();
 
   return axios
     .get(url)
