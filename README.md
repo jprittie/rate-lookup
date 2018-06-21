@@ -8,7 +8,7 @@ for four inputs: date, base currency, base amount and conversion currency. The p
 a JSON object that includes the value of the base currency amount in the conversion currency.
 
 ### To build this project:
-* Run git clone https://github.com/jprittie/rate-lookup.
+* Run `git clone https://github.com/jprittie/rate-lookup`.
 * Navigate to the project root by entering `cd rate-lookup`.
 * Run `npm install` to install the dependencies.
 * Run `npm start` to start the program. You should see a series of command-line prompts asking you
