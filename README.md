@@ -13,7 +13,7 @@ a JSON object that includes the value of the base currency amount in the convers
 * Run `npm install` to install the dependencies.
 * Run `npm start` to start the program. You should see a series of four command-line prompts asking you
 to enter information.
-* The program should return an object with the following shape:
+* The program should return data with the following shape:
   `{
    "date": "2017-06-03",
    "base_currency": "USD",
